@@ -23,23 +23,10 @@ get '/review/random' do
   erb :"reviews/_random", locals:{review: @rand_review}
 end
 
-get '/movie/:id/reviews' do |id|
-  @movie = Movie.find(id)
+get '/review/:id' do |id|
+  @review = Review.find(id)
 
-  erb :"reviews/_all", locals:{reviews: @movie.reviews}
-end
-
-get '/movie/:id/review/new' do |id|
-  @movie = Movie.find(id)
-
-  erb :"reviews/_new_single", locals:{movie: @movie}
-end
-
-post '/movie/:id/review' do |id|
-  movie = Movie.find(id)
-  Review.create(params[:review])
-
-  redirect "/movie/#{movie.id}/reviews"
+  erb :"reviews/_single", locals:{review: @review}
 end
 
 get '/review/:id/edit' do |id|
