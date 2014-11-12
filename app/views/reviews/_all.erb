@@ -1,0 +1,5 @@
+<div class="reviews">
+  <% movie.reviews.each do |review| %>
+    <%= erb :"reviews/_single", locals:{review: review} %>
+  <% end %>
+</div>
