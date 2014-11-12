@@ -1,0 +1,5 @@
+<div class="movies">
+  <% movies.each do |movie| %>
+    <%= erb :"movies/_single", locals:{movie: movie} %>
+  <% end %>
+</div>
