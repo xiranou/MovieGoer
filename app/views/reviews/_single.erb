@@ -3,4 +3,7 @@
   <h5><%= review.author.username %></h5>
   <p><%= review.content %></p>
   <a href="/movie/<%= review.movie.id %>"><%= review.movie.title %></a>
+  <% if same_user?(review.author) %>
+    <a href="/review/<%= review.id %>/edit">Edit</a>
+  <% end %>
 </div>

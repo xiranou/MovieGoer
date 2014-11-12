@@ -22,3 +22,17 @@ post '/movie/:id/review' do |id|
 
   redirect "/movie/#{movie.id}/reviews"
 end
+
+get '/review/:id/edit' do |id|
+  @review = Review.find(id)
+
+  erb :"reviews/_edit", locals:{review: @review}
+end
+
+put '/review/:id' do |id|
+  @review = Review.find(id)
+  movie = @review.movie
+  @review.update(params[:review])
+
+  redirect redirect "/movie/#{movie.id}/reviews"
+end

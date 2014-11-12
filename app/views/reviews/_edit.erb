@@ -1,0 +1,6 @@
+<form action="/review/<%= review.id %>" method='post'>
+  <input type="hidden" name='_method' value='put'>
+  Title: <input type="text" name="review[title]" placeholder="<%= review.title %>">
+  Review: <textarea type="text" name="review[content]" placeholder="<%= review.content %>"></textarea>
+  <input type="submit" value="Submit">
+</form>
