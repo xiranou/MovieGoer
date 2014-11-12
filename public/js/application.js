@@ -59,6 +59,19 @@ $(document).ready(function() {
   $('body').on('click', '#show-comments', function(e) {
     e.preventDefault();
     $(e.target).siblings('.comments').toggle(400);
-    // $('.comments').toggle();
   });
+
+  $('body').on('click', '#movie-link', function(e) {
+    e.preventDefault();
+    $link = $(e.target);
+    $.ajax({
+      url: $link.attr('href'),
+      type: 'GET',
+      dataType: 'html',
+    })
+    .done(function(response) {
+      $('.jumbotron').html(response);
+    });
+  });
+
 });

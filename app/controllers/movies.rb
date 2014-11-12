@@ -1,7 +1,12 @@
 get '/movies' do
   @movies = Movie.all
 
-  erb :"movies/_all", locals:{movies: @movies}
+  if request.xhr?
+    erb :"movies/_all", layout: false, locals:{movies: @movies}
+  else
+    erb :"movies/_all", locals:{movies: @movies}
+  end
+
 end
 
 get '/movie/random' do
