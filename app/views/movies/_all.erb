@@ -2,4 +2,8 @@
   <% movies.each do |movie| %>
     <%= erb :"movies/_single", locals:{movie: movie} %>
   <% end %>
+  <br>
+  <% if current_user %>
+    <a href="/review/new">Write a new review! Why not!</a>
+  <% end %>
 </div>

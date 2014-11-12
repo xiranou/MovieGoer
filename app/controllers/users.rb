@@ -13,6 +13,5 @@ end
 get '/user/:id/movies' do |id|
   @user = User.find(id)
 
-
   erb :"movies/_all", locals:{movies: @user.watched_movies}
 end
