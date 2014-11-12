@@ -4,6 +4,12 @@ get '/movies' do
   erb :"movies/_all", locals:{movies: @movies}
 end
 
+get '/:id' do |id|
+  @movie = Movie.find(id)
+
+  erb :"movies/_single", locals:{movie: @movie}
+end
+
 get '/:id/reviews' do |id|
   @movie = Movie.find(id)
 
