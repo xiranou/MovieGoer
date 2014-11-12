@@ -1,0 +1,13 @@
+<form action="/review" method="post">
+  <p>Write a new review</p>
+  Title: <input type="text" name="review[title]">
+  Review: <textarea type="text" name="review[content]"></textarea>
+  Select a Movie!
+  <select name="review[movie_id]">
+    <% movies.each do |movie| %>
+      <option value="<%= movie.id %>"><%= movie.title %></option>
+    <% end %>
+  </select>
+  <input type="hidden" name="review[author_id]" value="<%= current_user.id %>">
+  <input type="submit" value="Submit">
+</form>

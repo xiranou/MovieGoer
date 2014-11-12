@@ -4,6 +4,19 @@ get '/reviews' do
   erb :"reviews/_all", locals:{reviews: @reviews}
 end
 
+get '/review/new' do
+  @movies = Movie.all
+
+  erb :"reviews/_new_all", locals:{movies: @movies}
+end
+
+post '/review' do
+  @review = Review.create(params[:review])
+  movie = @review.movie
+
+  redirect "/movie/#{movie.id}/reviews"
+end
+
 get '/movie/:id/reviews' do |id|
   @movie = Movie.find(id)
 
@@ -13,7 +26,7 @@ end
 get '/movie/:id/review/new' do |id|
   @movie = Movie.find(id)
 
-  erb :"reviews/_new", locals:{movie: @movie}
+  erb :"reviews/_new_single", locals:{movie: @movie}
 end
 
 post '/movie/:id/review' do |id|
