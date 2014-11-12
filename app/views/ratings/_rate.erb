@@ -1,0 +1,24 @@
+<div class="rate">
+  <form class="form-horizontal" action='/rating'>
+    <fieldset>
+      <div class="form-group">
+        <label for="select" class="col-lg-2 control-label">Ratings</label>
+        <div class="col-lg-10">
+          <select class="form-control" id="select" name="rating[score]">
+            <% [*1..10].each do |score| %>
+            <option value="score"><%= score %></option>
+            <% end %>
+          </select>
+        </div>
+      </div>
+      <input type="hidden" name="rating[voter]" value=voter>
+      <input type="hidden" name="rating[rateable]" value=rateable>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary">Rate!</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
