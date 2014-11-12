@@ -1,7 +1,11 @@
 get '/reviews' do
   @reviews = Review.all
 
-  erb :"reviews/_all", locals:{reviews: @reviews}
+  if request.xhr?
+    erb :"reviews/_all", locals:{reviews: @reviews}, layout: false
+  else
+    erb :"reviews/_all", locals:{reviews: @reviews}
+  end
 end
 
 get '/review/new' do
