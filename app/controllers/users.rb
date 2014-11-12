@@ -9,3 +9,10 @@ get '/user/:id/reviews' do |id|
 
   erb :"reviews/_all", locals:{reviews: @user.reviews}
 end
+
+get '/user/:id/movies' do |id|
+  @user = User.find(id)
+
+
+  erb :"movies/_all", locals:{movies: @user.watched_movies}
+end
