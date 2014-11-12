@@ -17,6 +17,12 @@ post '/review' do
   redirect "/movie/#{movie.id}/reviews"
 end
 
+get '/review/random' do
+  @rand_review = Review.all.to_a.sample
+
+  erb :"reviews/_random", locals:{review: @rand_review}
+end
+
 get '/movie/:id/reviews' do |id|
   @movie = Movie.find(id)
 

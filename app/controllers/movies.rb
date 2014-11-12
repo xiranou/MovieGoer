@@ -5,7 +5,7 @@ get '/movies' do
 end
 
 get '/movie/random' do
-  @movie = Movie.all.to_a.sample
+  @rand_movie = Movie.all.to_a.sample
 
   erb :"movies/_single", locals:{movie: @movie}
 end
