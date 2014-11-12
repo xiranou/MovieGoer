@@ -1,0 +1,8 @@
+<div class="user user-<%= user.id %>">
+  <h3><%= user.username %></h3>
+  <br>
+  <h4>Reviews by <%= user.username %></h4>
+  <a href="/user/<%= user.id %>/reviews">Reviews (<%= user.reviews.count %>)</a>
+   <h4>Movies watched by <%= user.username %></h4>
+  <a href="/user/<%= user.id %>/movies">Movies (<%= user.watched_movies.count %>)</a>
+</div>
