@@ -2,4 +2,8 @@
   <% reviews.each do |review| %>
     <%= erb :"reviews/_single", locals:{review: review} %>
   <% end %>
+  <br>
+  <% if current_user %>
+    <a href="/review/new">Write a new review! Why not!</a>
+  <% end %>
 </div>

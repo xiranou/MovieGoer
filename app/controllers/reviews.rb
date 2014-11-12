@@ -34,5 +34,19 @@ put '/review/:id' do |id|
   movie = @review.movie
   @review.update(params[:review])
 
-  redirect redirect "/movie/#{movie.id}/reviews"
+  redirect "/movie/#{movie.id}/reviews"
+end
+
+get '/review/:id/delete' do |id|
+  @review = Review.find(id)
+
+  erb :"reviews/_delete", locals:{review: @review}
+end
+
+delete '/review/:id' do |id|
+  @review = Review.find(id)
+  movie = @review.movie
+  @review.destroy
+
+  redirect "/movie/#{movie.id}/reviews"
 end

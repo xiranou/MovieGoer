@@ -2,8 +2,11 @@
   <h4><%= review.title %></h4>
   <h5><%= review.author.username %></h5>
   <p><%= review.content %></p>
-  <a href="/movie/<%= review.movie.id %>"><%= review.movie.title %></a>
+  <h5><a href="/movie/<%= review.movie.id %>"><%= review.movie.title %></a></h5>
+  <br>
   <% if same_user?(review.author) %>
     <a href="/review/<%= review.id %>/edit">Edit</a>
+    <br>
+    <a href="/review/<%= review.id %>/delete">Delete</a>
   <% end %>
 </div>
