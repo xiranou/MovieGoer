@@ -2,7 +2,10 @@
   <%= erb :_top_nav %>
   <div class="welcome">
     <% if session[:error] %>
-      <p><%= display_error %></p>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>Oh snap!</strong><%= display_error %>
+    </div>
     <% end %>
 
     <% if current_user %>

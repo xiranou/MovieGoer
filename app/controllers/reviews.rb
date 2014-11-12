@@ -28,7 +28,6 @@ post '/movie/:id/review' do |id|
   else
     redirect "/movie/#{@movie.id}/reviews"
   end
-
 end
 
 get '/reviews' do
@@ -53,9 +52,12 @@ end
 
 post '/review' do
   @review = Review.create(params[:review])
-  movie = @review.movie
-
-  redirect "/movie/#{movie.id}/reviews"
+  @movie = @review.movie
+  if request.xhr?
+    erb :"reviews/_all", locals:{reviews: @movie.reviews}, layout: false
+  else
+    redirect "/movie/#{@movie.id}/reviews"
+  end
 end
 
 get '/review/random' do

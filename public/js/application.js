@@ -1,14 +1,12 @@
 $(document).ready(function() {
   $('body').on('click', 'a#signup', function(e) {
     e.preventDefault();
-    console.log(1);
     $("#signup-form").toggle();
     $("#login-form").hide();
   });
 
   $('body').on('click', 'a#login', function(e) {
     e.preventDefault();
-    console.log(2);
     $("#login-form").toggle();
     $("#signup-form").hide();
   });
@@ -129,7 +127,6 @@ $(document).ready(function() {
     .done(function(response) {
       $('.container').html(response);
     });
-
   });
 
   $('body').on('click', '.cancel-form-btn', function(e) {
