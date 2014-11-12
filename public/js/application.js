@@ -117,6 +117,21 @@ $(document).ready(function() {
     });
   });
 
+  $('body').on('submit', '#new-review-single', function(e) {
+    e.preventDefault();
+    $form = $(e.target);
+    $.ajax({
+      url: $form.attr('action'),
+      type: $form.attr('method'),
+      dataType: 'html',
+      data: $form.serialize(),
+    })
+    .done(function(response) {
+      $('.container').html(response);
+    });
+
+  });
+
   $('body').on('click', '.cancel-form-btn', function(e) {
     e.preventDefault();
     $(e.target).closest('form').remove();

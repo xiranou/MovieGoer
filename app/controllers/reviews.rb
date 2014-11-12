@@ -20,10 +20,15 @@ get '/movie/:id/review/new' do |id|
 end
 
 post '/movie/:id/review' do |id|
-  movie = Movie.find(id)
-  Review.create(params[:review])
+  @movie = Movie.find(id)
+  @review = Review.create(params[:review])
 
-  redirect "/movie/#{movie.id}/reviews"
+  if request.xhr?
+    erb :"reviews/_all", locals:{reviews: @movie.reviews}, layout: false
+  else
+    redirect "/movie/#{@movie.id}/reviews"
+  end
+
 end
 
 get '/reviews' do
