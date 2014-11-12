@@ -87,4 +87,17 @@ $(document).ready(function() {
     });
   });
 
+  $('body').on('click', '#home-link', function(e) {
+    e.preventDefault();
+    $link = $(e.target);
+    $.ajax({
+      url: $link.attr('href'),
+      type: 'GET',
+      dataType: 'html',
+    })
+    .done(function(response) {
+      $('.jumbotron').html(response);
+    });
+  });
+
 });

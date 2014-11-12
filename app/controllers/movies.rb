@@ -6,7 +6,6 @@ get '/movies' do
   else
     erb :"movies/_all", locals:{movies: @movies}
   end
-
 end
 
 get '/movie/random' do
