@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   has_many :reviews, foreign_key: :author_id
   has_many :watched_movies, through: :reviews, source: :movie
   has_many :comments, foreign_key: :commenter_id
+
+  has_many :ratings, as: :rateable
 end
