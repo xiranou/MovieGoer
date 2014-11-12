@@ -1,3 +1,16 @@
-.jumbotron{padding: 3em;}
+body{
+  background-color: rgba(127,43,23,0.4);
+}
 
-#login-form, #signup-form{display: none;}
+.well{
+  background-color: rgba(127,43,23,0.4);
+}
+
+.jumbotron{
+  padding: 3em;
+  background-color: rgba(127,43,23,0.4);
+}
+
+#login-form, #signup-form{
+  display: none;
+}
