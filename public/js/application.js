@@ -116,4 +116,9 @@ $(document).ready(function() {
     });
   });
 
+  $('body').on('click', '.cancel-form-btn', function(e) {
+    e.preventDefault();
+    $(e.target).closest('form').remove();
+  });
+
 });
