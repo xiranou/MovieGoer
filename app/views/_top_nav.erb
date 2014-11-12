@@ -10,12 +10,10 @@
   <div class="navbar-collapse collapse navbar-inverse-collapse">
     <ul class="nav navbar-nav" id='site-nave'>
       <!-- <li class="active"><a href="#">Active</a></li> -->
+      <% if current_user %>
       <li><a href="/movies">Movies</a></li>
       <li><a href="/reviews">Reviews</a></li>
       <li><a href="/movie/random">Pick a random movie!</a></li>
-      <% if current_user %>
-      <li><a href="#">LINK FOR Current_User</a></li>
-      <li><a href="#">LINK FOR Current_User</a></li>
       <% end %>
     </ul>
     <ul class="nav navbar-nav navbar-right" id='login-nav'>

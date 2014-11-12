@@ -4,6 +4,6 @@
   <p><%= movie.synopsis %></p>
   <a href="/movie/<%= movie.id %>/reviews">Reviews(<%= movie.reviews.count %>)</a>
   <% if current_user %>
-    <a href="/review/new">Write a review!</a>
+    <a href="/movie/<%= movie.id %>/review/new">Write a review!</a>
   <% end %>
 </div>
