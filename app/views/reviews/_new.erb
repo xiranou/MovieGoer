@@ -1,0 +1,8 @@
+<form action="/movie/<%= movie.id %>/review" method="post">
+  <p>Write a review for <%= movie.title %></p>
+  Title: <input type="text" name="review[title]">
+  Review: <textarea type="text" name="review[content]"></textarea>
+  <input type="hidden" name="review[movie_id]" value="<%= movie.id %>">
+  <input type="hidden" name="review[author_id]" value="<%= current_user.id %>">
+  <input type="submit" value="Submit">
+</form>
