@@ -110,15 +110,31 @@ $(document).ready(function() {
       type: 'GET',
       dataType: 'html',
     })
-    .done(function(response) {
+    .done(function(newReviewForm) {
       $link.closest('.movies').find('#new-review-single').remove();
-      $link.closest('.movie').append(response);
+      $link.closest('.movie').append(newReviewForm);
     });
   });
 
   $('body').on('click', '.cancel-form-btn', function(e) {
     e.preventDefault();
     $(e.target).closest('form').remove();
+  });
+
+  $('body').on('click', '#new-review-select', function(e) {
+    e.preventDefault();
+    $link = $(e.target);
+    $.ajax({
+      url: $link.attr('href'),
+      type: 'GET',
+      dataType: 'html',
+    })
+    .done(function(newReviewSelectForm) {
+      $link.closest('.movies').find('#new-review-all').remove();
+      $link.closest('.movies').append(newReviewSelectForm);
+      console.log(newReviewSelectForm);
+    });
+
   });
 
 });

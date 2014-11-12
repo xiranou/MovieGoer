@@ -11,7 +11,11 @@ end
 get '/review/new' do
   @movies = Movie.all
 
-  erb :"reviews/_new_all", locals:{movies: @movies}
+  if request.xhr?
+    erb :"reviews/_new_all", locals:{movies: @movies}, layout: false
+  else
+    erb :"reviews/_new_all", locals:{movies: @movies}
+  end
 end
 
 post '/review' do
