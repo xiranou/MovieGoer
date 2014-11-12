@@ -3,10 +3,13 @@
   <h5><%= review.author.username %></h5>
   <p><%= review.content %></p>
   <h5><a href="/movie/<%= review.movie.id %>"><%= review.movie.title %></a></h5>
-  <br>
-  <% if same_user?(review.author) %>
-    <a href="/review/<%= review.id %>/edit">Edit</a>
+  <% if current_user %>
+    <a href="/review/<%= review.id %>/comment/new" class="btn btn-primary">Comment</a>
     <br>
-    <a href="/review/<%= review.id %>/delete">Delete</a>
   <% end %>
+  <% if same_user?(review.author) %>
+    <a href="/review/<%= review.id %>/edit" class="btn btn-primary btn-sm">Edit</a>
+    <a href="/review/<%= review.id %>/delete" class="btn btn-primary btn-sm">Delete</a>
+  <% end %>
+  <br>
 </div>
