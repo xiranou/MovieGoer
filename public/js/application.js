@@ -1,17 +1,19 @@
 $(document).ready(function() {
-  $('body').on('click', '#signup', function(e) {
+  $('body').on('click', 'a#signup', function(e) {
     e.preventDefault();
+    console.log(1);
     $("#signup-form").toggle();
     $("#login-form").hide();
   });
 
-  $('body').on('click', '#login', function(e) {
+  $('body').on('click', 'a#login', function(e) {
     e.preventDefault();
+    console.log(2);
     $("#login-form").toggle();
     $("#signup-form").hide();
   });
 
-  $('body').on('click','#logout',function(e) {
+  $('body').on('click','a#logout',function(e) {
     e.preventDefault();
     $link = $(e.target);
     $.ajax({
@@ -70,7 +72,7 @@ $(document).ready(function() {
       dataType: 'html',
     })
     .done(function(response) {
-      $('.jumbotron').html(response);
+      $('.container').html(response);
     });
   });
 
@@ -83,7 +85,7 @@ $(document).ready(function() {
       dataType: 'html',
     })
     .done(function(response) {
-      $('.jumbotron').html(response);
+      $('.container').html(response);
     });
   });
 
@@ -96,7 +98,7 @@ $(document).ready(function() {
       dataType: 'html',
     })
     .done(function(response) {
-      $('.jumbotron').html(response);
+      $('.container').html(response);
     });
   });
 

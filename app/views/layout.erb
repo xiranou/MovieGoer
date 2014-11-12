@@ -15,9 +15,13 @@
   </header>
 
   <div class="jumbotron">
-    <%= erb :"auth/login" %>
-    <%= erb :"auth/signup" %>
-    <%= yield %>
+    <div class="auth-form">
+      <%= erb :"auth/login" %>
+      <%= erb :"auth/signup" %>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
