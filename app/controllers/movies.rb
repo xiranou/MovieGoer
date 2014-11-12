@@ -13,5 +13,5 @@ end
 get '/:id/reviews' do |id|
   @movie = Movie.find(id)
 
-  erb :"reviews/_all", locals:{movie: @movie}
+  erb :"reviews/_all", locals:{reviews: @movie.reviews}
 end
