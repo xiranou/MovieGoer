@@ -3,6 +3,9 @@
   <h5><%= review.author.username %></h5>
   <p><%= review.content %></p>
   <h5><a href="/movie/<%= review.movie.id %>"><%= review.movie.title %></a></h5>
+  <br>
+  <a href="/review/<%= review.id %>/comments" id='show-comments'>See Comments (<%= review.comments.count %>)</a>
+  <br>
 
   <% unless review.comments.empty? %>
     <%= erb :"comments/_all", locals:{comments: review.comments} %>

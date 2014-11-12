@@ -5,3 +5,7 @@
 #login-form, #signup-form{
   display: none;
 }
+
+.comments{
+  display: none;
+}

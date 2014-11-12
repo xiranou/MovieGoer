@@ -1,3 +1,9 @@
+get '/review/:id/comments' do |id|
+  @review = Review.find(id)
+
+  erb :"comments/_all", locals:{comments: @review.comments}
+end
+
 get '/comment/:id' do |id|
   @comment = Comment.find(id)
 

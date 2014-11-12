@@ -55,4 +55,10 @@ $(document).ready(function() {
       $('header').replaceWith(welcomePartial);
     });
   });
+
+  $('body').on('click', '#show-comments', function(e) {
+    e.preventDefault();
+    $(e.target).siblings('.comments').toggle(400);
+    // $('.comments').toggle();
+  });
 });
