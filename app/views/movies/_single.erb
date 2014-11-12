@@ -2,7 +2,7 @@
   <h4><%= movie.title %></h4>
   <p>synopsis</p>
   <p><%= movie.synopsis %></p>
-  <a href="/movie/<%= movie.id %>/reviews">Reviews(<%= movie.reviews.count %>)</a>
+  <a href="/movie/<%= movie.id %>/reviews" class="movie-reviews">Reviews(<%= movie.reviews.count %>)</a>
   <% if current_user %>
     <a href="/movie/<%= movie.id %>/review/new" class='new-review'>Write a review!</a>
   <% end %>

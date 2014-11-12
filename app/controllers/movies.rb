@@ -16,29 +16,10 @@ end
 
 get '/movie/:id' do |id|
   @movie = Movie.find(id)
-
-  erb :"movies/_single", locals:{movie: @movie}
-end
-
-get '/movie/:id/reviews' do |id|
-  @movie = Movie.find(id)
-
-  erb :"reviews/_all", locals:{reviews: @movie.reviews}
-end
-
-get '/movie/:id/review/new' do |id|
-  @movie = Movie.find(id)
-
   if request.xhr?
-    erb :"reviews/_new_single", layout: false, locals:{movie: @movie}
+    erb :"movies/_single", locals:{movie: @movie}, layout: false
   else
-    erb :"reviews/_new_single", locals:{movie: @movie}
+    erb :"movies/_single", locals:{movie: @movie}
   end
 end
 
-post '/movie/:id/review' do |id|
-  movie = Movie.find(id)
-  Review.create(params[:review])
-
-  redirect "/movie/#{movie.id}/reviews"
-end

@@ -2,7 +2,7 @@
   <h4><%= review.title %></h4>
   <h5><%= review.author.username %></h5>
   <p><%= review.content %></p>
-  <h5><a href="/movie/<%= review.movie.id %>"><%= review.movie.title %></a></h5>
+  <h5><a href="/movie/<%= review.movie.id %>" class='movie-link'><%= review.movie.title %></a></h5>
   <br>
   <a href="/review/<%= review.id %>/comments" id='show-comments'>See Comments (<%= review.comments.count %>)</a>
   <br>

@@ -84,8 +84,8 @@ $(document).ready(function() {
       type: 'GET',
       dataType: 'html',
     })
-    .done(function(response) {
-      $('.container').html(response);
+    .done(function(reviews) {
+      $('.container').html(reviews);
     });
   });
 
@@ -112,6 +112,7 @@ $(document).ready(function() {
     })
     .done(function(newReviewForm) {
       $link.closest('.movies').find('#new-review-single').remove();
+      $link.closest('.movie').find('#new-review-single').remove();
       $link.closest('.movie').append(newReviewForm);
     });
   });
@@ -132,9 +133,33 @@ $(document).ready(function() {
     .done(function(newReviewSelectForm) {
       $link.closest('.movies').find('#new-review-all').remove();
       $link.closest('.movies').append(newReviewSelectForm);
-      console.log(newReviewSelectForm);
     });
+  });
 
+  $('body').on('click', '.movie-reviews', function(e) {
+    e.preventDefault();
+    $link = $(e.target);
+    $.ajax({
+      url: $link.attr('href'),
+      type: 'GET',
+      dataType: 'html',
+    })
+    .done(function(reviews) {
+      $('.container').html(reviews);
+    });
+  });
+
+  $('body').on('click', '.movie-link', function(e) {
+    e.preventDefault();
+    $link = $(e.target);
+    $.ajax({
+      url: $link.attr('href'),
+      type: 'GET',
+      dataType: 'html',
+    })
+    .done(function(movie) {
+      $('.container').html(movie);
+    });
   });
 
 });
