@@ -3,6 +3,12 @@
   <p>synopsis</p>
   <p><%= movie.synopsis %></p>
   <a href="/movie/<%= movie.id %>/reviews" class="movie-reviews">Reviews(<%= movie.reviews.count %>)</a>
+  <p>Average Ratings:
+    <% unless movie.ratings.empty? %>
+      <%= average_score(movie) %></p>
+    <% else %>
+      No ratings yet!</p>
+    <% end %>
   <% if current_user %>
     <a href="/movie/<%= movie.id %>/review/new" class='new-review'>Write a review!</a>
     <%= erb :"ratings/_rate", locals:{rateable: movie, voter: current_user} %>
