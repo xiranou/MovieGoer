@@ -97,8 +97,22 @@ $(document).ready(function() {
       type: 'GET',
       dataType: 'html',
     })
+    .done(function(moviesAllPartical) {
+      $('.container').html(moviesAllPartical);
+    });
+  });
+
+  $('body').on('click', '.new-review', function(e) {
+    e.preventDefault();
+    $link = $(e.target);
+    $.ajax({
+      url: $link.attr('href'),
+      type: 'GET',
+      dataType: 'html',
+    })
     .done(function(response) {
-      $('.container').html(response);
+      $link.closest('.movies').find('#new-review-single').remove();
+      $link.closest('.movie').append(response);
     });
   });
 

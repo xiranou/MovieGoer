@@ -29,7 +29,11 @@ end
 get '/movie/:id/review/new' do |id|
   @movie = Movie.find(id)
 
-  erb :"reviews/_new_single", locals:{movie: @movie}
+  if request.xhr?
+    erb :"reviews/_new_single", layout: false, locals:{movie: @movie}
+  else
+    erb :"reviews/_new_single", locals:{movie: @movie}
+  end
 end
 
 post '/movie/:id/review' do |id|
