@@ -1,3 +1,9 @@
+get '/comment/:id' do |id|
+  @comment = Comment.find(id)
+
+  erb :"comments/_single", locals:{comment: @comment}
+end
+
 get '/review/:id/comment/new' do |id|
   @review = Review.find(id)
 
@@ -8,4 +14,16 @@ post '/review/:id/comment' do
   @comment = Comment.create(params[:comment])
 
   redirect "/review/#{@comment.review.id}"
+end
+
+get '/comment/:id/reply/new' do |id|
+  @comment = Comment.find(id)
+
+  erb :"comments/_reply", locals:{parent: @comment}
+end
+
+post '/comment/:id/reply' do |_|
+  comment = Comment.create(params[:reply])
+
+  redirect "/review/#{comment.review_id}"
 end

@@ -1,6 +1,7 @@
 <div class="comments">
   <ul class="comments-ul">
     <% comments.each do |comment| %>
+      <% next if comment.parent_id %>
       <%= erb :"comments/_single", locals:{comment: comment} %>
     <% end %>
   </ul>

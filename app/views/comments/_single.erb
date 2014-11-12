@@ -1,4 +1,12 @@
 <li class="comment">
   <p><%= comment.content %></p>
   <a href="/user/<%= comment.commenter.id %>"><%= comment.commenter.username %></a>
+  <a href="/comment/<%= comment.id %>/reply/new">Reply</a>
+  <% unless comment.replies.empty? %>
+    <ol class='replies'>
+      <% comment.replies.each do |reply| %>
+        <%= erb :"comments/_single", locals:{comment: reply} %>
+      <% end %>
+    </ol>
+  <% end %>
 </li>
