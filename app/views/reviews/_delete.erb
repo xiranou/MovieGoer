@@ -1,5 +1,6 @@
-<form action="/review/<%= review.id %>" method='post'>
+<form action="/review/<%= review.id %>" method='post' class="delete-form">
   <input type="hidden" name='_method' value='delete'>
   <h5>Are you sure?</h5>
-  <input type="submit" value="Delete">
+  <button class="btn btn-default cancel-delete">Cancel</button>
+  <input type="submit" class="btn btn-primary" value="Delete">
 </form>

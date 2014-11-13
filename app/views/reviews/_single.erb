@@ -18,7 +18,7 @@
 
   <% if same_user?(review.author) %>
     <a href="/review/<%= review.id %>/edit" class="btn btn-primary btn-sm">Edit</a>
-    <a href="/review/<%= review.id %>/delete" class="btn btn-primary btn-sm">Delete</a>
+    <a href="/review/<%= review.id %>/delete" class="btn btn-primary btn-sm review-delete">Delete</a>
   <% end %>
   <br>
 </div>
