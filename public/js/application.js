@@ -177,7 +177,6 @@ $(document).ready(function() {
   $('body').on('click', '.delete-review', function(e) {
     e.preventDefault();
     $link = $(e.target);
-    console.log($link.attr('href'));
     $.ajax({
       url: $link.attr('href'),
       type: 'Get',
@@ -191,7 +190,6 @@ $(document).ready(function() {
   $('body').on('submit', '.delete-form', function(e) {
     e.preventDefault();
     $form = $(e.target);
-    console.log($form.attr('method'));
     $.ajax({
       url: $form.attr('action'),
       type: "DELETE",
