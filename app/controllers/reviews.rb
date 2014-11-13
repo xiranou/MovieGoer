@@ -100,5 +100,10 @@ delete '/review/:id' do |id|
   movie = @review.movie
   @review.destroy
 
-  redirect "/movie/#{movie.id}/reviews"
+  if request.xhr?
+    erb :"reviews/_all", locals:{reviews: movie.reviews}, layout: false
+  else
+    redirect "/movie/#{movie.id}/reviews"
+  end
+
 end

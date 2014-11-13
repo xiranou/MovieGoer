@@ -109,13 +109,13 @@ $(document).ready(function() {
       dataType: 'html',
     })
     .done(function(newReviewForm) {
-      $link.closest('.movies').find('#new-review-single').remove();
-      $link.closest('.movie').find('#new-review-single').remove();
-      $link.closest('.movie').append(newReviewForm);
+      $link.find('.new-review-single').remove();
+      $link.find('.new-review-single').remove();
+      $link.after(newReviewForm);
     });
   });
 
-  $('body').on('submit', '#new-review-single', function(e) {
+  $('body').on('submit', '.new-review-single', function(e) {
     e.preventDefault();
     $form = $(e.target);
     $.ajax({
@@ -174,17 +174,32 @@ $(document).ready(function() {
     });
   });
 
-  $('body').on('click', '.review-delete', function(e) {
+  $('body').on('click', '.delete-review', function(e) {
     e.preventDefault();
     $link = $(e.target);
+    console.log($link.attr('href'));
     $.ajax({
       url: $link.attr('href'),
       type: 'Get',
       dataType: 'html',
     })
     .done(function(deleteConfirmation) {
-      $link.append(deleteConfirmation);
+      $link.after(deleteConfirmation);
     });
+  });
+
+  $('body').on('submit', '.delete-form', function(e) {
+    e.preventDefault();
+    $form = $(e.target);
+    console.log($form.attr('method'));
+    $.ajax({
+      url: $form.attr('action'),
+      type: "DELETE",
+    })
+    .done(function(reviews) {
+      $('.container').html(reviews);
+    });
+
   });
 
   $('body').on('click', '.cancel-delete', function(e) {
