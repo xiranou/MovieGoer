@@ -199,13 +199,8 @@ $(document).ready(function() {
     .done(function(reviews) {
       $('.container').html(reviews);
     });
-
   });
 
-  $('body').on('click', '.cancel-delete', function(e) {
-    e.preventDefault();
-    $button = $(e.target);
-    $button.closest('.delete-form').remove();
-  });
+
 
 });
