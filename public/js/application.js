@@ -169,9 +169,28 @@ $(document).ready(function() {
       type: 'GET',
       dataType: 'html',
     })
-    .done(function(movie) {
-      $('.container').html(movie);
+    .done(function(moviesAll) {
+      $('.container').html(moviesAll);
     });
+  });
+
+  $('body').on('click', '.review-delete', function(e) {
+    e.preventDefault();
+    $link = $(e.target);
+    $.ajax({
+      url: $link.attr('href'),
+      type: 'Get',
+      dataType: 'html',
+    })
+    .done(function(deleteConfirmation) {
+      $link.append(deleteConfirmation);
+    });
+  });
+
+  $('body').on('click', '.cancel-delete', function(e) {
+    e.preventDefault();
+    $button = $(e.target);
+    $button.closest('.delete-form').remove();
   });
 
 });

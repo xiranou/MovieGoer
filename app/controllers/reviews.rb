@@ -88,8 +88,11 @@ end
 
 get '/review/:id/delete' do |id|
   @review = Review.find(id)
-
-  erb :"reviews/_delete", locals:{review: @review}
+  if request.xhr?
+    erb :"reviews/_delete", locals:{review: @review}, layout: false
+  else
+    erb :"reviews/_delete", locals:{review: @review}
+  end
 end
 
 delete '/review/:id' do |id|
