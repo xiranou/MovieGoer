@@ -1,0 +1,5 @@
+ <% unless voted?(rateable, voter) %>
+    <%= erb :"ratings/_rate_form", locals:{rateable: rateable, voter: voter} %>
+ <% else %>
+    <p>You've already voted on this!</p>
+ <% end %>

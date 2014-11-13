@@ -199,4 +199,20 @@ $(document).ready(function() {
     });
   });
 
+  $('body').on('submit', '.rate-form', function(e) {
+    e.preventDefault();
+    $form = $(e.target);
+    $.ajax({
+      url: $form.attr('action'),
+      type: $form.attr('method'),
+      dataType: 'html',
+      data: $form.serialize(),
+    })
+    .done(function(response) {
+      $('.rating').html(response);
+    });
+
+  });
+
+
 });
