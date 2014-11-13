@@ -44,17 +44,19 @@ $(document).ready(function() {
     });
   });
 
-  $('#signup-form').submit(function(e) {
+  $('body').on("submit", "#signup-form", function(e) {
     e.preventDefault();
     $form = $(e.target);
+    console.log($form.attr('method'));
     $.ajax({
       url: $form.attr('action'),
       type: $form.attr('method'),
+      dataType: 'html',
       data: $form.serialize(),
     })
-    .done(function(welcomePartial) {
+    .done(function(response) {
       $form.toggle(400);
-      $('header').replaceWith(welcomePartial);
+      $('header').replaceWith(response);
     });
   });
 
