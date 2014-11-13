@@ -1,6 +1,28 @@
-<form action="/review/<%= review.id %>" method='post'>
-  <input type="hidden" name='_method' value='put'>
-  Title: <input type="text" name="review[title]" placeholder="<%= review.title %>">
-  Review: <textarea type="text" name="review[content]" placeholder="<%= review.content %>"></textarea>
-  <input type="submit" value="Submit">
+<form class="form-horizontal" action="/review/<%= review.id %>" method='post'>
+  <fieldset>
+    <legend>Edit Review</legend>
+
+    <div class="form-group">
+      <label for="text" class="col-lg-2 control-label">Title</label>
+      <div class="col-lg-10">
+        <textarea type="text" name="review[title]" placeholder="<%= review.content %>"></textarea>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="textArea" class="col-lg-2 control-label">Review</label>
+      <div class="col-lg-10">
+        <textarea type="text" name="review[content]" placeholder="<%= review.content %>"></textarea>
+      </div>
+    </div>
+
+    <input type="hidden" name='_method' value='put'>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button class="btn btn-default cancel-form-btn">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
 </form>

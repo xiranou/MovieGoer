@@ -35,7 +35,14 @@ post '/comment/:id/reply' do |_|
 end
 
 get '/comment/:id/edit' do |id|
-  comment = Comment.find(id)
+  @comment = Comment.find(id)
 
-  erb :"comments/_edit", locals:{comment: comment}
+  erb :"comments/_edit", locals:{comment: @comment}
+end
+
+put '/comment/:id' do |id|
+  @comment = Comment.find(id)
+  @comment.update(params[:comment])
+
+  redirect "comment/#{@comment.id}", locals:{comment: @comment}
 end
