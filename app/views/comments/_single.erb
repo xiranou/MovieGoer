@@ -1,7 +1,15 @@
 <li class="comment">
   <p><%= comment.content %></p>
   <a href="/user/<%= comment.commenter.id %>"><%= comment.commenter.username %></a>
-  <a href="/comment/<%= comment.id %>/reply/new">Reply</a>
+
+  <% if current_user %>
+    <a href="/comment/<%= comment.id %>/reply/new">Reply</a>
+    <% if same_user?(current_user) %>
+      <a href="/comment/<%= comment.id %>/edit">EDIT</a>
+      <a href="/comment/<%= comment.id %>/delete">DELETE</a>
+    <% end %>
+  <% end %>
+
   <% unless comment.replies.empty? %>
     <ol class='replies'>
       <% comment.replies.each do |reply| %>

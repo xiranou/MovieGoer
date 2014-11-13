@@ -33,3 +33,9 @@ post '/comment/:id/reply' do |_|
 
   redirect "/review/#{comment.review_id}"
 end
+
+get '/comment/:id/edit' do |id|
+  comment = Comment.find(id)
+
+  erb :"comments/_edit", locals:{comment: comment}
+end

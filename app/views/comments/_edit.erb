@@ -1,0 +1,5 @@
+<form action="/comment/<%= comment.id %>" method='post'>
+  <input type="hidden" name='_method' value='put'>
+  Comment: <textarea type="text" name="comment[content]" placeholder="<%= comment.content %>"></textarea>
+  <input type="submit" value="Submit">
+</form>
