@@ -11,6 +11,10 @@
     <% end %>
   <% if current_user %>
     <a href="/movie/<%= movie.id %>/review/new" class='new-review'>Write a review!</a>
-    <%= erb :"ratings/_rate", locals:{rateable: movie, voter: current_user} %>
+    <% unless voted?(movie, current_user) %>
+      <%= erb :"ratings/_rate", locals:{rateable: movie, voter: current_user} %>
+    <% else %>
+      <p>You've already voted on this!</p>
+    <% end %>
   <% end %>
 </div>
