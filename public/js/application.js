@@ -213,7 +213,7 @@ $(document).ready(function() {
       data: $form.serialize(),
     })
     .done(function(response) {
-      $('.rating').html(response);
+      $form.closest('.rating').html(response);
     });
 
   });
