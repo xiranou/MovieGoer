@@ -3,13 +3,15 @@
   <p>synopsis</p>
   <p><%= movie.synopsis %></p>
   <a href="/movie/<%= movie.id %>/reviews" class="movie-reviews btn btn-warning">Reviews(<%= movie.reviews.count %>)</a>
+
   <% unless movie.ratings.empty? %>
   <h4 class="score">User Ratings: <%= average_score(movie) %></h4>
   <% else %>
     <h4 class="score">No ratings yet!</h4>
   <% end %>
+
   <% if current_user %>
     <a href="/movie/<%= movie.id %>/review/new" class='new-review'>Write a review!</a>
-   <%= erb :"ratings/_show_rate", locals:{rateable: movie, voter: current_user} %>
+   <%= erb :"ratings/_show_rate_form", locals:{rateable: movie, voter: current_user} %>
   <% end %>
 </div>
