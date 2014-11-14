@@ -209,13 +209,13 @@ $(document).ready(function() {
     $.ajax({
       url: $form.attr('action'),
       type: $form.attr('method'),
-      dataType: 'html',
+      dataType: 'json',
       data: $form.serialize(),
     })
-    .done(function(response) {
-      $form.closest('.rating').html(response);
+    .done(function(rating) {
+      $form.closest(".movie").find('.score').text("User Ratings:" + " " + rating.score);
+      $form.closest('.rating').html("<p>You've already voted on this!</p>");
     });
-
   });
 
 

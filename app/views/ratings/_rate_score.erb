@@ -1,0 +1,6 @@
+<h4>User Ratings:
+<% unless movie.ratings.empty? %>
+  <%= average_score(movie) %></h4>
+<% else %>
+  No ratings yet!</h4>
+<% end %>
