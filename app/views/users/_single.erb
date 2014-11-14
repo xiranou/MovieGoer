@@ -3,6 +3,8 @@
   <br>
   <h4>Reviews by <%= user.username %></h4>
   <a href="/user/<%= user.id %>/reviews">Reviews (<%= user.reviews.count %>)</a>
-   <h4>Movies watched by <%= user.username %></h4>
-  <a href="/user/<%= user.id %>/movies">Movies (<%= user.watched_movies.count %>)</a>
+   <h4>Movies reviewed by <%= user.username %></h4>
+  <a href="/user/<%= user.id %>/reviewed_movies">Reviewed Movies (<%= user.watched_movies.count %>)</a>
+   <h4>Movies rated by <%= user.username %></h4>
+  <a href="/user/<%= user.id %>/rated_movies">Rated Movies (<%= user.rated_movies.count %>)</a>
 </div>
