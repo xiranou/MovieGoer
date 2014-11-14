@@ -1,14 +1,14 @@
 $(document).ready(function() {
   $('body').on('click', 'a#signup', function(e) {
     e.preventDefault();
-    $("#signup-form").toggle();
-    $("#login-form").hide();
+    $("#login-form").hide(400);
+    $("#signup-form").toggle(400);
   });
 
   $('body').on('click', 'a#login', function(e) {
     e.preventDefault();
-    $("#login-form").toggle();
-    $("#signup-form").hide();
+    $("#signup-form").hide(400);
+    $("#login-form").toggle(400);
   });
 
   // $('body').on('click','a#logout',function(e) {
@@ -25,7 +25,7 @@ $(document).ready(function() {
 
   $('.cancel-btn').click(function(e) {
     e.preventDefault();
-    $(e.target).closest('form').toggle();
+    $(e.target).closest('form').toggle(400);
   });
 
   // $('body').on("submit", "#login-form", function(e) {

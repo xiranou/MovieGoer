@@ -2,12 +2,12 @@
   <h4><%= movie.title %></h4>
   <p>synopsis</p>
   <p><%= movie.synopsis %></p>
-  <a href="/movie/<%= movie.id %>/reviews" class="movie-reviews">Reviews(<%= movie.reviews.count %>)</a>
-  <p>Average Ratings:
+  <a href="/movie/<%= movie.id %>/reviews" class="movie-reviews btn btn-warning">Reviews(<%= movie.reviews.count %>)</a>
+  <h4>User Ratings:
     <% unless movie.ratings.empty? %>
-      <%= average_score(movie) %></p>
+      <%= average_score(movie) %></h4>
     <% else %>
-      No ratings yet!</p>
+      No ratings yet!</h4>
     <% end %>
   <% if current_user %>
     <a href="/movie/<%= movie.id %>/review/new" class='new-review'>Write a review!</a>
