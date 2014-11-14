@@ -11,54 +11,54 @@ $(document).ready(function() {
     $("#signup-form").hide();
   });
 
-  $('body').on('click','a#logout',function(e) {
-    e.preventDefault();
-    $link = $(e.target);
-    $.ajax({
-      url: $link.attr('href'),
-      type: 'GET',
-    })
-    .done(function(welcomePartial) {
-      $('header').replaceWith(welcomePartial);
-    });
-  });
+  // $('body').on('click','a#logout',function(e) {
+  //   e.preventDefault();
+  //   $link = $(e.target);
+  //   $.ajax({
+  //     url: $link.attr('href'),
+  //     type: 'GET',
+  //   })
+  //   .done(function(welcomePartial) {
+  //     $('header').replaceWith(welcomePartial);
+  //   });
+  // });
 
   $('.cancel-btn').click(function(e) {
     e.preventDefault();
     $(e.target).closest('form').toggle();
   });
 
-  $('body').on("submit", "#login-form", function(e) {
-    e.preventDefault();
-    $form = $(e.target);
-    console.log($form.attr('method'));
-    $.ajax({
-      url: $form.attr('action'),
-      type: $form.attr('method'),
-      dataType: 'html',
-      data: $form.serialize(),
-    })
-    .done(function(response) {
-      $form.toggle(400);
-      $('header').replaceWith(response);
-    });
-  });
+  // $('body').on("submit", "#login-form", function(e) {
+  //   e.preventDefault();
+  //   $form = $(e.target);
+  //   console.log($form.attr('method'));
+  //   $.ajax({
+  //     url: $form.attr('action'),
+  //     type: $form.attr('method'),
+  //     dataType: 'html',
+  //     data: $form.serialize(),
+  //   })
+  //   .done(function(response) {
+  //     $form.toggle(400);
+  //     $('header').replaceWith(response);
+  //   });
+  // });
 
-  $('body').on("submit", "#signup-form", function(e) {
-    e.preventDefault();
-    $form = $(e.target);
-    console.log($form.attr('method'));
-    $.ajax({
-      url: $form.attr('action'),
-      type: $form.attr('method'),
-      dataType: 'html',
-      data: $form.serialize(),
-    })
-    .done(function(response) {
-      $form.toggle(400);
-      $('header').replaceWith(response);
-    });
-  });
+  // $('body').on("submit", "#signup-form", function(e) {
+  //   e.preventDefault();
+  //   $form = $(e.target);
+  //   console.log($form.attr('method'));
+  //   $.ajax({
+  //     url: $form.attr('action'),
+  //     type: $form.attr('method'),
+  //     dataType: 'html',
+  //     data: $form.serialize(),
+  //   })
+  //   .done(function(response) {
+  //     $form.toggle(400);
+  //     $('header').replaceWith(response);
+  //   });
+  // });
 
   $('body').on('click', '#show-comments', function(e) {
     e.preventDefault();
